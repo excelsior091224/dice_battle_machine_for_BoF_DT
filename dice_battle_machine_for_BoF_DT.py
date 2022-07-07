@@ -131,21 +131,21 @@ def knockout(log_title, log_text, current_round, offence_boxer, defense_boxer):
     print_text = 'レフェリーがカウントを数える。\n'
     print(print_text)
     log_text += print_text + '\n'
-    input('いずれかのキーを押すと試合が進行します:')
+    input()
     print_text = 'カウント１０！！\n'
     print(print_text)
     log_text += print_text + '\n'
-    input('いずれかのキーを押すと試合が進行します:')
+    input()
     defense_boxer.result = '●'
     offence_boxer.result = '〇'
     print_text = 'カーン！カーン！カーン！　{}はKO負けした。\n\n'.format(defense_boxer.name)
     print(print_text)
     log_text += print_text + '\n'
-    input('いずれかのキーを押すと試合が進行します:')
+    input()
     print_text = 'Winner {}！！\n'.format(offence_boxer.name)
     print(print_text)
     log_text += print_text + '\n'
-    input('いずれかのキーを押すと試合が進行します:')
+    input()
     if offence_boxer.corner == '青':
         print_text = '{}{}（第{}R　KO）{}{}'.format(offence_boxer.result,offence_boxer.name,current_round,defense_boxer.name,defense_boxer.result)
         print(print_text)
@@ -165,15 +165,15 @@ def technical_knockout(log_title, log_text, current_round, offence_boxer, defens
     log_text += print_text + '\n'
     defense_boxer.result = '●'
     offence_boxer.result = '〇'
-    input('いずれかのキーを押すと試合が進行します:')
+    input()
     print_text = 'カーン！カーン！カーン！　{}はTKO負けした。\n\n'.format(defense_boxer.name)
     print(print_text)
     log_text += print_text + '\n'
-    input('いずれかのキーを押すと試合が進行します:')
+    input()
     print_text = 'Winner {}！！\n'.format(offence_boxer.name)
     print(print_text)
     log_text += print_text + '\n'
-    input('いずれかのキーを押すと試合が進行します:')
+    input()
     if offence_boxer.corner == '青':
         print_text = '{}{}（第{}R　TKO）{}{}'.format(offence_boxer.result,offence_boxer.name,current_round,defense_boxer.name,defense_boxer.result)
         print(print_text)
@@ -193,42 +193,42 @@ def standup_a(log_title, log_text, current_round, offence_boxer, defense_boxer):
         print_text = 'カウント8で立ち上がる。\n'
         print(print_text)
         log_text += print_text + '\n'
-        input('いずれかのキーを押すと試合が進行します:')
+        input()
         print_text = '体力が{}に回復\n'.format(defense_boxer.hp)
         print(print_text)
         log_text += print_text + '\n'
-        input('いずれかのキーを押すと試合が進行します:')
+        input()
         print_text = 'スピードが減って{}に。\n'.format(defense_boxer.speed)
         print(print_text)
         log_text += print_text + '\n'
-        input('いずれかのキーを押すと試合が進行します:')
+        input()
         return log_title, log_text, current_round, offence_boxer, defense_boxer
     else:
         print_text = 'カウント8で立ち上がる。\n'
         print(print_text)
         log_text += print_text + '\n'
-        input('いずれかのキーを押すと試合が進行します:')
+        input()
         print_text = '体力が{}に回復\n'.format(defense_boxer.hp)
         print(print_text)
         log_text += print_text + '\n'
-        input('いずれかのキーを押すと試合が進行します:')
+        input()
         print_text = 'スピードが-3で{}に。\n'.format(defense_boxer.speed)
         print(print_text)
         log_text += print_text + '\n'
-        input('いずれかのキーを押すと試合が進行します:')
+        input()
         return log_title, log_text, current_round, offence_boxer, defense_boxer
 
 def standup_b(log_title, log_text, current_round, offence_boxer, defense_boxer):
     print_text = 'カウント8で立ち上がる。\n'
     print(print_text)
     log_text += print_text + '\n'
-    input('いずれかのキーを押すと試合が進行します:')
+    input()
     if defense_boxer.hp <= 39:
         defense_boxer.hp += 1
         print_text = '体力が{}に回復。\n'.format(defense_boxer.hp)
         print(print_text)
         log_text += print_text + '\n'
-        input('いずれかのキーを押すと試合が進行します:')
+        input()
     defense_boxer.speed -= 3
     if defense_boxer.speed <= 0:
         defense_boxer.speed = 1
@@ -245,7 +245,7 @@ def standup_c(log_title, log_text, current_round, offence_boxer, defense_boxer):
     print_text = 'カウント8で立ち上がる。\n'
     print(print_text)
     log_text += print_text + '\n'
-    input('いずれかのキーを押すと試合が進行します:')
+    input()
     if defense_boxer.hp <= 38:
         defense_boxer.hp += 2
     elif defense_boxer.hp == 39:
@@ -253,7 +253,7 @@ def standup_c(log_title, log_text, current_round, offence_boxer, defense_boxer):
     print_text = '体力が{}に回復。\n'.format(defense_boxer.hp)
     print(print_text)
     log_text += print_text + '\n'
-    input('いずれかのキーを押すと試合が進行します:')
+    input()
     defense_boxer.speed -= 3
     if defense_boxer.speed <= 0:
         defense_boxer.speed = 1
@@ -271,7 +271,7 @@ def offence(log_title, log_text, current_round, offence_boxer, defense_boxer):
     print_text = '{}が攻撃の主導権を手にした。\n'.format(offence_boxer.name)
     print(print_text)
     log_text += print_text + '\n'
-    input('いずれかのキーを押すと試合が進行します:')
+    input()
 
     offence_dice_6 = offence_boxer.dice_6.throw_dice()
     if offence_dice_6[0] == 1:
@@ -315,17 +315,17 @@ def offence(log_title, log_text, current_round, offence_boxer, defense_boxer):
     log_text += print_text + '\n'
 
     if offence_attack_num < 1:
-        input('いずれかのキーを押すと試合が進行します:')
+        input()
         defense_boxer.hp -= 1
         print_text = '{}のパンチが防御された。しかし、{}に1のダメージを与えた。'.format(offence_boxer.name,defense_boxer.name)
         print(print_text)
         log_text += print_text + '\n'
-        input('いずれかのキーを押すと試合が進行します:')
+        input()
         if defense_boxer.hp <= 0:
             print_text = '{}がダウン！\n'.format(defense_boxer.name)
             print(print_text)
             log_text += print_text + '\n'
-            input('いずれかのキーを押すと試合が進行します:')
+            input()
             defense_dice_6 = defense_boxer.dice_6.throw_dice()
             if sum(defense_dice_6) <= 6:
                 log_title, log_text, current_round, offence_boxer, defense_boxer = knockout(log_title, log_text, current_round, offence_boxer, defense_boxer)
@@ -343,16 +343,16 @@ def offence(log_title, log_text, current_round, offence_boxer, defense_boxer):
         else:
             return log_title, log_text, current_round, offence_boxer, defense_boxer
     elif offence_punch_type == '必殺技':
-        input('いずれかのキーを押すと試合が進行します:')
+        input()
         defense_boxer.hp -= offence_attack_num
         print_text = '{}の必殺技が炸裂した。{}-{}のダメージでHPが{}に減った。\n'.format(offence_boxer.name,defense_boxer.name,offence_attack_num,defense_boxer.hp)
         print(print_text)
         log_text += print_text + '\n'
-        input('いずれかのキーを押すと試合が進行します:')
+        input()
         print_text = '{}がダウン！\n'.format(defense_boxer.name)
         print(print_text)
         log_text += print_text + '\n'
-        input('いずれかのキーを押すと試合が進行します:')
+        input()
         if defense_boxer.hp >= 1:
             defense_dice_6 = defense_boxer.dice_6.throw_dice()
             if sum(defense_dice_6) <= 6:
@@ -362,13 +362,13 @@ def offence(log_title, log_text, current_round, offence_boxer, defense_boxer):
                 print_text = 'カウント8で立ち上がる。\n'
                 print(print_text)
                 log_text += print_text + '\n'
-                input('いずれかのキーを押すと試合が進行します:')
+                input()
                 if defense_boxer.hp <= 39:
                     defense_boxer.hp += 1
                     print_text = '体力{}に回復。\n'.format(defense_boxer.hp)
                     print(print_text)
                     log_text += print_text + '\n'
-                    input('いずれかのキーを押すと試合が進行します:')
+                    input()
                 if defense_boxer.toughness <= 2:
                     defense_boxer.toughness = 1
                     print_text = 'タフネスが{}に。\n'.format(defense_boxer.toughness)
@@ -384,7 +384,7 @@ def offence(log_title, log_text, current_round, offence_boxer, defense_boxer):
                 print_text = 'カウント8で立ち上がる。\n'
                 print(print_text)
                 log_text += print_text + '\n'
-                input('いずれかのキーを押すと試合が進行します:')
+                input()
                 if defense_boxer.hp <= 38:
                     defense_boxer.hp += 2
                 elif defense_boxer.hp == 39:
@@ -392,7 +392,7 @@ def offence(log_title, log_text, current_round, offence_boxer, defense_boxer):
                 print_text = '体力が{}に回復。\n'.format(defense_boxer.hp)
                 print(print_text)
                 log_text += print_text + '\n'
-                input('いずれかのキーを押すと試合が進行します:')
+                input()
                 if defense_boxer.toughness <= 2:
                     defense_boxer.toughness = 1
                     print_text = 'タフネスが{}に。\n'.format(defense_boxer.toughness)
@@ -413,12 +413,12 @@ def offence(log_title, log_text, current_round, offence_boxer, defense_boxer):
                 print_text = 'カウント8で立ち上がる。\n'
                 print(print_text)
                 log_text += print_text + '\n'
-                input('いずれかのキーを押すと試合が進行します:')
+                input()
                 defense_boxer.hp = 1
                 print_text = '体力が{}に回復。\n'.format(defense_boxer.hp)
                 print(print_text)
                 log_text += print_text + '\n'
-                input('いずれかのキーを押すと試合が進行します:')
+                input()
                 if defense_boxer.toughness <= 2:
                     defense_boxer.toughness = 1
                     print_text = 'タフネスが{}に。\n'.format(defense_boxer.toughness)
@@ -434,17 +434,17 @@ def offence(log_title, log_text, current_round, offence_boxer, defense_boxer):
             log_title, log_text, current_round, offence_boxer, defense_boxer = technical_knockout(log_title, log_text, current_round, offence_boxer, defense_boxer)
             return log_title, log_text, current_round, offence_boxer, defense_boxer
     else:
-        input('いずれかのキーを押すと試合が進行します:')
+        input()
         defense_boxer.hp -= offence_attack_num
         print_text = '{}の{}がヒットした。{}-{}のダメージでHPが{}に減った。\n'.format(offence_boxer.name,offence_punch_type,defense_boxer.name,offence_attack_num,defense_boxer.hp)
         print(print_text)
         log_text += print_text + '\n'
-        input('いずれかのキーを押すと試合が進行します:')
+        input()
         if 40 >= defense_boxer.hp >= 20 and offence_attack_num >= 13:
             print_text = '{}がダウン！\n'.format(defense_boxer.name)
             print(print_text)
             log_text += print_text + '\n'
-            input('いずれかのキーを押すと試合が進行します:')
+            input()
             defense_dice_6 = defense_boxer.dice_6.throw_dice()
             if sum(defense_dice_6) <= 3:
                 log_title, log_text, current_round, offence_boxer, defense_boxer = knockout(log_title, log_text, current_round, offence_boxer, defense_boxer)
@@ -459,7 +459,7 @@ def offence(log_title, log_text, current_round, offence_boxer, defense_boxer):
             print_text = '{}がダウン！\n'.format(defense_boxer.name)
             print(print_text)
             log_text += print_text + '\n'
-            input('いずれかのキーを押すと試合が進行します:')
+            input()
             defense_dice_6 = defense_boxer.dice_6.throw_dice()
             if sum(defense_dice_6) <= 4:
                 log_title, log_text, current_round, offence_boxer, defense_boxer = knockout(log_title, log_text, current_round, offence_boxer, defense_boxer)
@@ -474,7 +474,7 @@ def offence(log_title, log_text, current_round, offence_boxer, defense_boxer):
             print_text = '{}がダウン！\n'.format(defense_boxer.name)
             print(print_text)
             log_text += print_text + '\n'
-            input('いずれかのキーを押すと試合が進行します:')
+            input()
             defense_dice_6 = defense_boxer.dice_6.throw_dice()
             if sum(defense_dice_6) <= 5:
                 log_title, log_text, current_round, offence_boxer, defense_boxer = knockout(log_title, log_text, current_round, offence_boxer, defense_boxer)
@@ -489,7 +489,7 @@ def offence(log_title, log_text, current_round, offence_boxer, defense_boxer):
             print_text = '{}がダウン！\n'.format(defense_boxer.name)
             print(print_text)
             log_text += print_text + '\n'
-            input('いずれかのキーを押すと試合が進行します:')
+            input()
             defense_dice_6 = defense_boxer.dice_6.throw_dice()
             if sum(defense_dice_6) <= 6:
                 log_title, log_text, current_round, offence_boxer, defense_boxer = knockout(log_title, log_text, current_round, offence_boxer, defense_boxer)
@@ -523,20 +523,20 @@ def match(FIGHT_LOG_DIR,max_round,red_boxer,blue_boxer):
     print_text = 'メインイベント女子ボクシング{}回戦を行います！！\n'.format(max_round)
     print(print_text)
     log_text += print_text + '\n'
-    input('いずれかのキーを押すと試合が進行します:')
+    input()
     print_text = '{}コーナー{}！！\n'.format(blue_boxer.corner, blue_boxer.name)
     print(print_text)
     log_text += print_text + '\n'
-    input('いずれかのキーを押すと試合が進行します:')
+    input()
     print_text = '{}コーナー{}！！\n'.format(red_boxer.corner, red_boxer.name)
     print(print_text)
     log_text += print_text + '\n'
-    input('いずれかのキーを押すと試合が進行します:')
+    input()
     print_text = '試合開始！\n'
     print(print_text)
     log_text += print_text + '\n'
     while current_round <= max_round and red_boxer.result == '' and blue_boxer.result == '':
-        input('いずれかのキーを押すと試合が進行します:')
+        input()
         red_dice_12 = red_boxer.dice_12.throw_dice()
         blue_dice_12 = blue_boxer.dice_12.throw_dice()
         red_dice_12_sum = sum(red_dice_12) + red_boxer.speed
@@ -545,12 +545,12 @@ def match(FIGHT_LOG_DIR,max_round,red_boxer,blue_boxer):
         print_text = '第{}R ターン{}\n'.format(current_round,current_turn)
         print(print_text)
         log_text += print_text + '\n'
-        input('いずれかのキーを押すと試合が進行します:')
+        input()
 
         print_text = '{}のダイス数値が{}に対し{}のダイス数値が{}\n'.format(red_boxer.name, red_dice_12_sum,blue_boxer.name,blue_dice_12_sum)
         print(print_text)
         log_text += print_text + '\n'
-        input('いずれかのキーを押すと試合が進行します:')
+        input()
         
         if red_dice_12_sum > blue_dice_12_sum:
             log_title, log_text, current_round, red_boxer, blue_boxer = offence(log_title, log_text, current_round, red_boxer, blue_boxer)
@@ -566,64 +566,64 @@ def match(FIGHT_LOG_DIR,max_round,red_boxer,blue_boxer):
             print_text = '両者クリンチ。\n'
             print(print_text)
             log_text += print_text + '\n'
-            input('いずれかのキーを押すと試合が進行します:')
+            input()
             if red_boxer.hp <= 38:
                 red_boxer.hp += 2
                 print_text = '{}、体力が2回復して{}。\n'.format(red_boxer.name,red_boxer.hp)
                 print(print_text)
                 log_text += print_text + '\n'
-                input('いずれかのキーを押すと試合が進行します:')
+                input()
             elif red_boxer.hp == 39:
                 red_boxer.hp += 1
                 print_text = '{}、体力が1回復して{}。\n'.format(red_boxer.name,red_boxer.hp)
                 print(print_text)
                 log_text += print_text + '\n'
-                input('いずれかのキーを押すと試合が進行します:')
+                input()
             if blue_boxer.hp <= 38:
                 blue_boxer.hp += 2
                 print_text = '{}、体力が2回復して{}。\n'.format(blue_boxer.name,blue_boxer.hp)
                 print(print_text)
                 log_text += print_text + '\n'
-                input('いずれかのキーを押すと試合が進行します:')
+                input()
             elif blue_boxer.hp == 39:
                 blue_boxer.hp += 1
                 print_text = '{}、体力が1回復して{}。\n'.format(blue_boxer.name,blue_boxer.hp)
                 print(print_text)
                 log_text += print_text + '\n'
-                input('いずれかのキーを押すと試合が進行します:')
+                input()
                     
         if current_turn == 3:
-            input('いずれかのキーを押すと試合が進行します:')
+            input()
             print_text = 'カーン！\n第{}R終了のゴングが鳴った。\n'.format(current_round)
             print(print_text)
             log_text += print_text + '\n'
             current_turn = 1
             current_round += 1
-            input('いずれかのキーを押すと試合が進行します:')
+            input()
 
             if current_round > max_round:
                 print_text = 'カーン！カーン！カーン！　試合終了のゴングが鳴った。\n'
                 print(print_text)
                 log_text += print_text + '\n'
-                input('いずれかのキーを押すと試合が進行します:')
+                input()
                 print_text = '判定の結果をお伝えします！\n'
                 print(print_text)
                 log_text += print_text + '\n'
-                input('いずれかのキーを押すと試合が進行します:')
+                input()
                 print_text = '赤コーナー:{}選手\nHP:{}\nパンチ力:{}\nスピード:{}\nタフネス:{}\n'.format(red_boxer.name,red_boxer.hp,red_boxer.punch_power,red_boxer.speed,red_boxer.toughness)
                 print(print_text)
                 log_text += print_text + '\n'
-                input('いずれかのキーを押すと試合が進行します:')
+                input()
                 print_text = '青コーナー:{}選手\nHP:{}\nパンチ力:{}\nスピード:{}\nタフネス:{}\n'.format(blue_boxer.name,blue_boxer.hp,blue_boxer.punch_power,blue_boxer.speed,blue_boxer.toughness)
                 print(print_text)
                 log_text += print_text + '\n'
-                input('いずれかのキーを押すと試合が進行します:')
+                input()
 
                 if blue_boxer.hp > red_boxer.hp:
                     print_text = 'Winner {}！！\n'.format(blue_boxer.name)
                     print(print_text)
                     log_text += print_text + '\n'
-                    input('いずれかのキーを押すと試合が進行します:')
+                    input()
                     print_text = '〇{}（{}R　判定）{}●'.format(blue_boxer.name,max_round,red_boxer.name)
                     print(print_text)
                     log_text += print_text + '\n'
@@ -635,7 +635,7 @@ def match(FIGHT_LOG_DIR,max_round,red_boxer,blue_boxer):
                     print_text = 'Winner {}！！\n'.format(red_boxer.name)
                     print(print_text)
                     log_text += print_text + '\n'
-                    input('いずれかのキーを押すと試合が進行します:')
+                    input()
                     print_text = '●{}（{}R　判定）{}〇'.format(blue_boxer.name,max_round,red_boxer.name)
                     print(print_text)
                     log_text += print_text + '\n'
@@ -647,7 +647,7 @@ def match(FIGHT_LOG_DIR,max_round,red_boxer,blue_boxer):
                     print_text = 'Draw！！\n'
                     print(print_text)
                     log_text += print_text + '\n'
-                    input('いずれかのキーを押すと試合が進行します:')
+                    input()
                     print_text = '{}（{}R　判定引き分け）{}'.format(blue_boxer.name,max_round,red_boxer.name)
                     print(print_text)
                     log_text += print_text + '\n'
@@ -659,7 +659,7 @@ def match(FIGHT_LOG_DIR,max_round,red_boxer,blue_boxer):
                 print_text = 'インターバル\n'
                 print(print_text)
                 log_text += print_text + '\n'
-                input('いずれかのキーを押すと試合が進行します:')
+                input()
                 # 青コーナーのボクサーが体力38以下の場合
                 if blue_boxer.hp <= 38:
                     # インターバルで体力2加算
@@ -671,20 +671,20 @@ def match(FIGHT_LOG_DIR,max_round,red_boxer,blue_boxer):
                             print_text = '青コーナー：{}の体力が2回復して{}になった。\n'.format(blue_boxer.name,blue_boxer.hp)
                             print(print_text)
                             log_text += print_text + '\n'
-                            input('いずれかのキーを押すと試合が進行します:')
+                            input()
                         # スピードが2以上の場合攻め疲れで-1
                         else:
                             blue_boxer.speed -= 1
                             print_text = '青コーナー：{}の体力が2回復して{}になった。攻め疲れでスピード-1で{}に。\n'.format(blue_boxer.name,blue_boxer.hp,blue_boxer.speed)
                             print(print_text)
                             log_text += print_text + '\n'
-                            input('いずれかのキーを押すと試合が進行します:')
+                            input()
                     # 赤より攻撃回数が少ない場合体力の2加算のみ
                     else:
                         print_text = '青コーナー：{}の体力が2回復して{}になった。\n'.format(blue_boxer.name,blue_boxer.hp)
                         print(print_text)
                         log_text += print_text + '\n'
-                        input('いずれかのキーを押すと試合が進行します:')
+                        input()
                 elif blue_boxer.hp == 39:
                     blue_boxer.hp += 1
                     if blue_boxer.attack_num > red_boxer.attack_num:
@@ -692,28 +692,28 @@ def match(FIGHT_LOG_DIR,max_round,red_boxer,blue_boxer):
                             print_text = '青コーナー：{}の体力が1回復して{}になった。\n'.format(blue_boxer.name,blue_boxer.hp)
                             print(print_text)
                             log_text += print_text + '\n'
-                            input('いずれかのキーを押すと試合が進行します:')
+                            input()
                         else:
                             blue_boxer.speed -= 1
                             print_text = '青コーナー：{}の体力が1回復して{}になった。攻め疲れでスピード-1で{}に。\n'.format(blue_boxer.name,blue_boxer.hp,blue_boxer.speed)
                             print(print_text)
                             log_text += print_text + '\n'
-                            input('いずれかのキーを押すと試合が進行します:')
+                            input()
                     else:
                         print_text = '青コーナー：{}の体力が1回復して{}になった。\n'.format(blue_boxer.name,blue_boxer.hp)
                         print(print_text)
                         log_text += print_text + '\n'
-                        input('いずれかのキーを押すと試合が進行します:')
+                        input()
                 else:
                     if blue_boxer.attack_num > red_boxer.attack_num:
                         if blue_boxer.speed <= 1:
-                            input('いずれかのキーを押すと試合が進行します:')
+                            input()
                         else:
                             blue_boxer.speed -= 1
                             print_text = '青コーナー：{}攻め疲れでスピード-1で{}に。\n'.format(blue_boxer.name,blue_boxer.speed)
                             print(print_text)
                             log_text += print_text + '\n'
-                            input('いずれかのキーを押すと試合が進行します:')
+                            input()
                 if red_boxer.hp <= 38:
                     red_boxer.hp += 2
                     if red_boxer.attack_num > blue_boxer.attack_num:
@@ -721,18 +721,18 @@ def match(FIGHT_LOG_DIR,max_round,red_boxer,blue_boxer):
                             print_text = '赤コーナー：{}の体力が2回復して{}になった。\n'.format(red_boxer.name,red_boxer.hp)
                             print(print_text)
                             log_text += print_text + '\n'
-                            input('いずれかのキーを押すと試合が進行します:')
+                            input()
                         else:
                             red_boxer.speed -= 1
                             print_text = '赤コーナー：{}の体力が2回復して{}になった。攻め疲れでスピード-1で{}に。\n'.format(red_boxer.name,red_boxer.hp,red_boxer.speed)
                             print(print_text)
                             log_text += print_text + '\n'
-                            input('いずれかのキーを押すと試合が進行します:')
+                            input()
                     else:
                         print_text = '赤コーナー：{}の体力が2回復して{}になった。\n'.format(red_boxer.name,red_boxer.hp)
                         print(print_text)
                         log_text += print_text + '\n'
-                        input('いずれかのキーを押すと試合が進行します:')
+                        input()
                 elif red_boxer.hp == 39:
                     red_boxer.hp += 1
                     if red_boxer.attack_num > blue_boxer.attack_num:
@@ -740,34 +740,34 @@ def match(FIGHT_LOG_DIR,max_round,red_boxer,blue_boxer):
                             print_text = '赤コーナー：{}の体力が1回復して{}になった。\n'.format(red_boxer.name,red_boxer.hp)
                             print(print_text)
                             log_text += print_text + '\n'
-                            input('いずれかのキーを押すと試合が進行します:')
+                            input()
                         else:
                             red_boxer.speed -= 1
                             print_text = '赤コーナー：{}の体力が2回復して{}になった。攻め疲れでスピード-1で{}に。\n'.format(red_boxer.name,red_boxer.hp,red_boxer.speed)
                             print(print_text)
                             log_text += print_text + '\n'
-                            input('いずれかのキーを押すと試合が進行します:')
+                            input()
                     else:
                         print_text = '赤コーナー：{}の体力が1回復して{}になった。\n'.format(red_boxer.name,red_boxer.hp)
                         print(print_text)
                         log_text += print_text + '\n'
-                        input('いずれかのキーを押すと試合が進行します:')
+                        input()
                 else:
                     if red_boxer.attack_num > blue_boxer.attack_num:
                         if red_boxer.speed <= 1:
-                            input('いずれかのキーを押すと試合が進行します:')
+                            input()
                         else:
                             red_boxer.speed -= 1
                             print_text = '赤コーナー：{}攻め疲れでスピード-1で{}に。\n'.format(red_boxer.name,red_boxer.speed)
                             print(print_text)
                             log_text += print_text + '\n'
-                            input('いずれかのキーを押すと試合が進行します:')
+                            input()
                 red_boxer.attack_num = 0
                 blue_boxer.attack_num = 0
                 print_text = '青コーナー：{}選手\nHP:{}\nパンチ力：{}\nスピード：{}\nタフネス：{}\n'.format(blue_boxer.name,blue_boxer.hp,blue_boxer.punch_power,blue_boxer.speed,blue_boxer.toughness)
                 print(print_text)
                 log_text += print_text + '\n'
-                input('いずれかのキーを押すと試合が進行します:')
+                input()
                 print_text = '赤コーナー：{}選手\nHP：{}\nパンチ力：{}\nスピード：{}\nタフネス：{}\n'.format(red_boxer.name,red_boxer.hp,red_boxer.punch_power,red_boxer.speed,red_boxer.toughness)
                 print(print_text)
                 log_text += print_text + '\n'
