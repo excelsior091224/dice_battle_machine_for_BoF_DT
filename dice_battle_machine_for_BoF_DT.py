@@ -327,6 +327,10 @@ def offence(log_title, log_text, current_round, offence_boxer, defense_boxer):
             log_text += print_text + '\n'
             input()
             defense_dice_6 = defense_boxer.dice_6.throw_dice()
+            print_text = '{}\n'.format(defense_dice_6)
+            print(print_text)
+            log_text += print_text + '\n'
+            input()
             if sum(defense_dice_6) <= 6:
                 log_title, log_text, current_round, offence_boxer, defense_boxer = knockout(log_title, log_text, current_round, offence_boxer, defense_boxer)
                 return log_title, log_text, current_round, offence_boxer, defense_boxer
@@ -355,10 +359,14 @@ def offence(log_title, log_text, current_round, offence_boxer, defense_boxer):
         input()
         if defense_boxer.hp >= 1:
             defense_dice_6 = defense_boxer.dice_6.throw_dice()
-            if sum(defense_dice_6) <= 6:
+            print_text = '{}\n'.format(defense_dice_6)
+            print(print_text)
+            log_text += print_text + '\n'
+            input()
+            if sum(defense_dice_6) <= 5:
                 log_title, log_text, current_round, offence_boxer, defense_boxer = knockout(log_title, log_text, current_round, offence_boxer, defense_boxer)
                 return log_title, log_text, current_round, offence_boxer, defense_boxer
-            elif sum(defense_dice_6) == 7:
+            elif sum(defense_dice_6) >= 6:
                 print_text = 'カウント8で立ち上がる。\n'
                 print(print_text)
                 log_text += print_text + '\n'
@@ -380,32 +388,12 @@ def offence(log_title, log_text, current_round, offence_boxer, defense_boxer):
                     print(print_text)
                     log_text += print_text + '\n'
                 return log_title, log_text, current_round, offence_boxer, defense_boxer
-            elif sum(defense_dice_6) >= 8:
-                print_text = 'カウント8で立ち上がる。\n'
-                print(print_text)
-                log_text += print_text + '\n'
-                input()
-                if defense_boxer.hp <= 38:
-                    defense_boxer.hp += 2
-                elif defense_boxer.hp == 39:
-                    defense_boxer.hp += 1
-                print_text = '体力が{}に回復。\n'.format(defense_boxer.hp)
-                print(print_text)
-                log_text += print_text + '\n'
-                input()
-                if defense_boxer.toughness <= 2:
-                    defense_boxer.toughness = 1
-                    print_text = 'タフネスが{}に。\n'.format(defense_boxer.toughness)
-                    print(print_text)
-                    log_text += print_text + '\n'
-                else:
-                    defense_boxer.toughness -= 2
-                    print_text = 'タフネスが-2で{}に。\n'.format(defense_boxer.toughness)
-                    print(print_text)
-                    log_text += print_text + '\n'
-                return log_title, log_text, current_round, offence_boxer, defense_boxer
         elif defense_boxer.hp >= -3 and defense_boxer.hp <= 0:
             defense_dice_6 = defense_boxer.dice_6.throw_dice()
+            print_text = '{}\n'.format(defense_dice_6)
+            print(print_text)
+            log_text += print_text + '\n'
+            input()
             if sum(defense_dice_6) <= 6:
                 log_title, log_text, current_round, offence_boxer, defense_boxer = knockout(log_title, log_text, current_round, offence_boxer, defense_boxer)
                 return log_title, log_text, current_round, offence_boxer, defense_boxer
@@ -446,6 +434,10 @@ def offence(log_title, log_text, current_round, offence_boxer, defense_boxer):
             log_text += print_text + '\n'
             input()
             defense_dice_6 = defense_boxer.dice_6.throw_dice()
+            print_text = '{}\n'.format(defense_dice_6)
+            print(print_text)
+            log_text += print_text + '\n'
+            input()
             if sum(defense_dice_6) <= 3:
                 log_title, log_text, current_round, offence_boxer, defense_boxer = knockout(log_title, log_text, current_round, offence_boxer, defense_boxer)
                 return log_title, log_text, current_round, offence_boxer, defense_boxer
@@ -461,6 +453,10 @@ def offence(log_title, log_text, current_round, offence_boxer, defense_boxer):
             log_text += print_text + '\n'
             input()
             defense_dice_6 = defense_boxer.dice_6.throw_dice()
+            print_text = '{}\n'.format(defense_dice_6)
+            print(print_text)
+            log_text += print_text + '\n'
+            input()
             if sum(defense_dice_6) <= 4:
                 log_title, log_text, current_round, offence_boxer, defense_boxer = knockout(log_title, log_text, current_round, offence_boxer, defense_boxer)
                 return log_title, log_text, current_round, offence_boxer, defense_boxer
@@ -476,6 +472,10 @@ def offence(log_title, log_text, current_round, offence_boxer, defense_boxer):
             log_text += print_text + '\n'
             input()
             defense_dice_6 = defense_boxer.dice_6.throw_dice()
+            print_text = '{}\n'.format(defense_dice_6)
+            print(print_text)
+            log_text += print_text + '\n'
+            input()
             if sum(defense_dice_6) <= 5:
                 log_title, log_text, current_round, offence_boxer, defense_boxer = knockout(log_title, log_text, current_round, offence_boxer, defense_boxer)
                 return log_title, log_text, current_round, offence_boxer, defense_boxer
@@ -491,6 +491,10 @@ def offence(log_title, log_text, current_round, offence_boxer, defense_boxer):
             log_text += print_text + '\n'
             input()
             defense_dice_6 = defense_boxer.dice_6.throw_dice()
+            print_text = '{}\n'.format(defense_dice_6)
+            print(print_text)
+            log_text += print_text + '\n'
+            input()
             if sum(defense_dice_6) <= 6:
                 log_title, log_text, current_round, offence_boxer, defense_boxer = knockout(log_title, log_text, current_round, offence_boxer, defense_boxer)
                 return log_title, log_text, current_round, offence_boxer, defense_boxer
