@@ -187,7 +187,7 @@ def technical_knockout(log_title, log_text, current_round, offence_boxer, defens
     input('キーを押したら終了します')
     return log_title, log_text, current_round, offence_boxer, defense_boxer
 
-def standup_a(log_title, log_text, current_round, offence_boxer, defense_boxer):
+def standup_a(log_title, log_text, current_round, offence_boxer, defense_boxer, offence_punch_type):
     if defense_boxer.speed <= 0:
         defense_boxer.speed = 1
         print_text = 'カウント8で立ち上がる。\n'
@@ -212,59 +212,16 @@ def standup_a(log_title, log_text, current_round, offence_boxer, defense_boxer):
         print(print_text)
         log_text += print_text + '\n'
         input()
-        print_text = 'スピードが-3で{}に。\n'.format(defense_boxer.speed)
-        print(print_text)
-        log_text += print_text + '\n'
+        if offence_punch_type == '左フック' or offence_punch_type == '右フック' or offence_punch_type == '左アッパーカット' or offence_punch_type == '右アッパーカット' or offence_punch_type == 'カウンターパンチ':
+            print_text = 'スピードが-4で{}に。\n'.format(defense_boxer.speed)
+            print(print_text)
+            log_text += print_text + '\n'
+        else:
+            print_text = 'スピードが-3で{}に。\n'.format(defense_boxer.speed)
+            print(print_text)
+            log_text += print_text + '\n'
         input()
         return log_title, log_text, current_round, offence_boxer, defense_boxer
-
-def standup_b(log_title, log_text, current_round, offence_boxer, defense_boxer):
-    print_text = 'カウント8で立ち上がる。\n'
-    print(print_text)
-    log_text += print_text + '\n'
-    input()
-    if defense_boxer.hp <= 39:
-        defense_boxer.hp += 1
-        print_text = '体力が{}に回復。\n'.format(defense_boxer.hp)
-        print(print_text)
-        log_text += print_text + '\n'
-        input()
-    defense_boxer.speed -= 3
-    if defense_boxer.speed <= 0:
-        defense_boxer.speed = 1
-        print_text = 'スピードが{}に。\n'.format(defense_boxer.speed)
-        print(print_text)
-        log_text += print_text + '\n'
-    else:
-        print_text = 'スピードが-3で{}に。\n'.format(defense_boxer.speed)
-        print(print_text)
-        log_text += print_text + '\n'      
-    return log_title, log_text, current_round, offence_boxer, defense_boxer
-
-def standup_c(log_title, log_text, current_round, offence_boxer, defense_boxer):
-    print_text = 'カウント8で立ち上がる。\n'
-    print(print_text)
-    log_text += print_text + '\n'
-    input()
-    if defense_boxer.hp <= 38:
-        defense_boxer.hp += 2
-    elif defense_boxer.hp == 39:
-        defense_boxer.hp += 1
-    print_text = '体力が{}に回復。\n'.format(defense_boxer.hp)
-    print(print_text)
-    log_text += print_text + '\n'
-    input()
-    defense_boxer.speed -= 3
-    if defense_boxer.speed <= 0:
-        defense_boxer.speed = 1
-        print_text = 'スピードが{}に。\n'.format(defense_boxer.speed)
-        print(print_text)
-        log_text += print_text + '\n'
-    else:
-        print_text = 'スピードが-3で{}に。\n'.format(defense_boxer.speed)
-        print(print_text)
-        log_text += print_text + '\n'
-    return log_title, log_text, current_round, offence_boxer, defense_boxer
 
 def offence(log_title, log_text, current_round, offence_boxer, defense_boxer):
     offence_boxer.attack_num += 1
@@ -442,10 +399,24 @@ def offence(log_title, log_text, current_round, offence_boxer, defense_boxer):
                 log_title, log_text, current_round, offence_boxer, defense_boxer = knockout(log_title, log_text, current_round, offence_boxer, defense_boxer)
                 return log_title, log_text, current_round, offence_boxer, defense_boxer
             elif sum(defense_dice_6) >= 4 and sum(defense_dice_6) <= 7:
-                log_title, log_text, current_round, offence_boxer, defense_boxer = standup_b(log_title, log_text, current_round, offence_boxer, defense_boxer)
+                if defense_boxer.hp <= 39:
+                    defense_boxer.hp += 1
+                if offence_punch_type == '左フック' or offence_punch_type == '右フック' or offence_punch_type == '左アッパーカット' or offence_punch_type == '右アッパーカット' or offence_punch_type == 'カウンターパンチ':
+                    defense_boxer.speed -= 4
+                else:
+                    defense_boxer.speed -= 3
+                log_title, log_text, current_round, offence_boxer, defense_boxer = standup_a(log_title, log_text, current_round, offence_boxer, defense_boxer, offence_punch_type)
                 return log_title, log_text, current_round, offence_boxer, defense_boxer          
-            elif sum(defense_dice_6) >= 7:
-                log_title, log_text, current_round, offence_boxer, defense_boxer = standup_c(log_title, log_text, current_round, offence_boxer, defense_boxer)
+            elif sum(defense_dice_6) >= 8:
+                if defense_boxer.hp <= 38:
+                    defense_boxer.hp += 2
+                elif defense_boxer.hp == 39:
+                    defense_boxer.hp += 1
+                if offence_punch_type == '左フック' or offence_punch_type == '右フック' or offence_punch_type == '左アッパーカット' or offence_punch_type == '右アッパーカット' or offence_punch_type == 'カウンターパンチ':
+                    defense_boxer.speed -= 4
+                else:
+                    defense_boxer.speed -= 3
+                log_title, log_text, current_round, offence_boxer, defense_boxer = standup_a(log_title, log_text, current_round, offence_boxer, defense_boxer, offence_punch_type)
                 return log_title, log_text, current_round, offence_boxer, defense_boxer
         elif defense_boxer.hp >= 11 and defense_boxer.hp <= 19 and offence_attack_num >= 12:
             print_text = '{}がダウン！\n'.format(defense_boxer.name)
@@ -461,10 +432,20 @@ def offence(log_title, log_text, current_round, offence_boxer, defense_boxer):
                 log_title, log_text, current_round, offence_boxer, defense_boxer = knockout(log_title, log_text, current_round, offence_boxer, defense_boxer)
                 return log_title, log_text, current_round, offence_boxer, defense_boxer
             elif sum(defense_dice_6) >= 5 and sum(defense_dice_6) <= 7:
-                log_title, log_text, current_round, offence_boxer, defense_boxer = standup_b(log_title, log_text, current_round, offence_boxer, defense_boxer)
+                defense_boxer.hp += 1
+                if offence_punch_type == '左フック' or offence_punch_type == '右フック' or offence_punch_type == '左アッパーカット' or offence_punch_type == '右アッパーカット' or offence_punch_type == 'カウンターパンチ':
+                    defense_boxer.speed -= 4
+                else:
+                    defense_boxer.speed -= 3
+                log_title, log_text, current_round, offence_boxer, defense_boxer = standup_a(log_title, log_text, current_round, offence_boxer, defense_boxer, offence_punch_type)
                 return log_title, log_text, current_round, offence_boxer, defense_boxer
             elif sum(defense_dice_6) >= 8:
-                log_title, log_text, current_round, offence_boxer, defense_boxer = standup_c(log_title, log_text, current_round, offence_boxer, defense_boxer)
+                defense_boxer.hp += 2
+                if offence_punch_type == '左フック' or offence_punch_type == '右フック' or offence_punch_type == '左アッパーカット' or offence_punch_type == '右アッパーカット' or offence_punch_type == 'カウンターパンチ':
+                    defense_boxer.speed -= 4
+                else:
+                    defense_boxer.speed -= 3
+                log_title, log_text, current_round, offence_boxer, defense_boxer = standup_a(log_title, log_text, current_round, offence_boxer, defense_boxer, offence_punch_type)
                 return log_title, log_text, current_round, offence_boxer, defense_boxer
         elif defense_boxer.hp >= 1 and defense_boxer.hp <= 9 and offence_attack_num >= 7:
             print_text = '{}がダウン！\n'.format(defense_boxer.name)
@@ -480,10 +461,20 @@ def offence(log_title, log_text, current_round, offence_boxer, defense_boxer):
                 log_title, log_text, current_round, offence_boxer, defense_boxer = knockout(log_title, log_text, current_round, offence_boxer, defense_boxer)
                 return log_title, log_text, current_round, offence_boxer, defense_boxer
             elif sum(defense_dice_6) >= 6 and sum(defense_dice_6) <= 7:
-                log_title, log_text, current_round, offence_boxer, defense_boxer = standup_b(log_title, log_text, current_round, offence_boxer, defense_boxer)
+                defense_boxer.hp += 1
+                if offence_punch_type == '左フック' or offence_punch_type == '右フック' or offence_punch_type == '左アッパーカット' or offence_punch_type == '右アッパーカット' or offence_punch_type == 'カウンターパンチ':
+                    defense_boxer.speed -= 4
+                else:
+                    defense_boxer.speed -= 3
+                log_title, log_text, current_round, offence_boxer, defense_boxer = standup_a(log_title, log_text, current_round, offence_boxer, defense_boxer, offence_punch_type)
                 return log_title, log_text, current_round, offence_boxer, defense_boxer
             elif sum(defense_dice_6) >= 8:
-                log_title, log_text, current_round, offence_boxer, defense_boxer = standup_c(log_title, log_text, current_round, offence_boxer, defense_boxer)
+                defense_boxer.hp += 2
+                if offence_punch_type == '左フック' or offence_punch_type == '右フック' or offence_punch_type == '左アッパーカット' or offence_punch_type == '右アッパーカット' or offence_punch_type == 'カウンターパンチ':
+                    defense_boxer.speed -= 4
+                else:
+                    defense_boxer.speed -= 3
+                log_title, log_text, current_round, offence_boxer, defense_boxer = standup_a(log_title, log_text, current_round, offence_boxer, defense_boxer, offence_punch_type)
                 return log_title, log_text, current_round, offence_boxer, defense_boxer
         elif defense_boxer.hp >= -3 and defense_boxer.hp <= 0:
             print_text = '{}がダウン！\n'.format(defense_boxer.name)
@@ -500,13 +491,19 @@ def offence(log_title, log_text, current_round, offence_boxer, defense_boxer):
                 return log_title, log_text, current_round, offence_boxer, defense_boxer
             elif sum(defense_dice_6) == 7:
                 defense_boxer.hp = 1
-                defense_boxer.speed -= 3
-                log_title, log_text, current_round, offence_boxer, defense_boxer = standup_a(log_title, log_text, current_round, offence_boxer, defense_boxer)
+                if offence_punch_type == '左フック' or offence_punch_type == '右フック' or offence_punch_type == '左アッパーカット' or offence_punch_type == '右アッパーカット' or offence_punch_type == 'カウンターパンチ':
+                    defense_boxer.speed -= 4
+                else:
+                    defense_boxer.speed -= 3
+                log_title, log_text, current_round, offence_boxer, defense_boxer = standup_a(log_title, log_text, current_round, offence_boxer, defense_boxer, offence_punch_type)
                 return log_title, log_text, current_round, offence_boxer, defense_boxer           
             elif sum(defense_dice_6) >= 8:
                 defense_boxer.hp = 2
-                defense_boxer.speed -= 3
-                log_title, log_text, current_round, offence_boxer, defense_boxer = standup_a(log_title, log_text, current_round, offence_boxer, defense_boxer)
+                if offence_punch_type == '左フック' or offence_punch_type == '右フック' or offence_punch_type == '左アッパーカット' or offence_punch_type == '右アッパーカット' or offence_punch_type == 'カウンターパンチ':
+                    defense_boxer.speed -= 4
+                else:
+                    defense_boxer.speed -= 3
+                log_title, log_text, current_round, offence_boxer, defense_boxer = standup_a(log_title, log_text, current_round, offence_boxer, defense_boxer, offence_punch_type)
                 return log_title, log_text, current_round, offence_boxer, defense_boxer
         elif defense_boxer.hp <= -4:
             log_title, log_text, current_round, offence_boxer, defense_boxer = technical_knockout(log_title, log_text, current_round, offence_boxer, defense_boxer)
