@@ -516,7 +516,7 @@ def offence(log_title, log_text, current_round, offence_boxer, defense_boxer):
 
 def match(FIGHT_LOG_DIR,max_round,red_boxer,blue_boxer):
     fight_datetime = datetime.now().strftime("%Y%m%d%H%M%S")
-    match_title = '{}_{}_VS_{}'.format(fight_datetime, red_boxer.name, blue_boxer.name)
+    match_title = '{}_{}_VS_{}'.format(fight_datetime, blue_boxer.name, red_boxer.name)
     log_title = FIGHT_LOG_DIR + '/' + match_title
     log_text = ''
     log_text += match_title + '\n'
