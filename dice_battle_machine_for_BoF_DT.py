@@ -506,6 +506,10 @@ def offence(log_title, log_text, current_round, offence_boxer, defense_boxer):
                 log_title, log_text, current_round, offence_boxer, defense_boxer = standup_a(log_title, log_text, current_round, offence_boxer, defense_boxer, offence_punch_type)
                 return log_title, log_text, current_round, offence_boxer, defense_boxer
         elif defense_boxer.hp <= -4:
+            print_text = '{}がダウン！\n'.format(defense_boxer.name)
+            print(print_text)
+            log_text += print_text + '\n'
+            input()
             log_title, log_text, current_round, offence_boxer, defense_boxer = technical_knockout(log_title, log_text, current_round, offence_boxer, defense_boxer)
             return log_title, log_text, current_round, offence_boxer, defense_boxer
         else:
