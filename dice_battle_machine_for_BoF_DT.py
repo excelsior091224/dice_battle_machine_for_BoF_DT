@@ -418,7 +418,7 @@ def offence(log_title, log_text, current_round, offence_boxer, defense_boxer):
                     defense_boxer.speed -= 3
                 log_title, log_text, current_round, offence_boxer, defense_boxer = standup_a(log_title, log_text, current_round, offence_boxer, defense_boxer, offence_punch_type)
                 return log_title, log_text, current_round, offence_boxer, defense_boxer
-        elif defense_boxer.hp >= 11 and defense_boxer.hp <= 19 and offence_attack_num >= 12:
+        elif defense_boxer.hp >= 10 and defense_boxer.hp <= 19 and offence_attack_num >= 12:
             print_text = '{}がダウン！\n'.format(defense_boxer.name)
             print(print_text)
             log_text += print_text + '\n'
@@ -447,7 +447,7 @@ def offence(log_title, log_text, current_round, offence_boxer, defense_boxer):
                     defense_boxer.speed -= 3
                 log_title, log_text, current_round, offence_boxer, defense_boxer = standup_a(log_title, log_text, current_round, offence_boxer, defense_boxer, offence_punch_type)
                 return log_title, log_text, current_round, offence_boxer, defense_boxer
-        elif defense_boxer.hp >= 1 and defense_boxer.hp <= 10 and offence_attack_num >= 7:
+        elif defense_boxer.hp >= 1 and defense_boxer.hp <= 9 and offence_attack_num >= 7:
             print_text = '{}がダウン！\n'.format(defense_boxer.name)
             print(print_text)
             log_text += print_text + '\n'
